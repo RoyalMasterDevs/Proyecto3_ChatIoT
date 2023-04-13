@@ -8,9 +8,9 @@ const options = {
     connectTimeout: 4000,
 
     // Authentication 
-    clientId: 'emqx_text',
-    username: 'emqx_text',
-    password: 'emqx_text',
+    clientId: client_id,
+    username: 'testuser',
+    password: '121212',
     keepalive: 60,
     clean: true,
 }
@@ -42,7 +42,7 @@ client.on('error', (error) => {
 
 
 client.on('message', function (topic, message) {
-    console.log("Te topic is " + topic + " and the message is " + message.toString());
+    console.log("El Topico es " + topic + " y el mensaje es " + message.toString());
 
     //string to object
     const received = JSON.parse(message.toString());
@@ -51,7 +51,7 @@ client.on('message', function (topic, message) {
     if (received.name == name_input.value ){
         chat_window.innerHTML = chat_window.innerHTML + '<div style="color:blue"> <b>' + received.msg + '</b></div>'
     }else{
-        // chat_window.innerHTML = chat_window.innerHTML + '<div style="color:grey"><i> ' + received.name + ': </i>' + received.msg + '</div>';
+        chat_window.innerHTML = chat_window.innerHTML + '<div style="color:grey"><i> ' + received.name + ': </i>' + received.msg + '</div>';
     }
 
     chat_window.scrollTop = chat_window.scrollHeight;
@@ -66,7 +66,7 @@ message_input.addEventListener('keyup', function (e){
 
         //name?
         if (name_input.value == ""){
-            chat_window.innerHTML = chat_window.innerHTML + '<div style="color:red"> <b> Your name is empty!!! :( </b> </div>' ;
+            chat_window.innerHTML = chat_window.innerHTML + '<div style="color:red"> <b> Tu nombre esta vacio!!! :( </b> </div>' ;
             return;
         }
 
