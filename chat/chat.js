@@ -8,15 +8,15 @@ const options = {
     connectTimeout: 4000,
 
     // Authentication 
-    // clientId: client_id,
-    // username: 'testuser',
-    // password: '121212',
+    clientId: client_id,
+    username: 'testuser',
+    password: '121212',
     keepalive: 60,
     clean: true,
 }
 
 // WebSocket connect url
-const WebSocket_URL = 'wss://proyectosbarrasdesigns.xyz:8083/mqtt';
+const WebSocket_URL = 'ws://proyectosbarrasdesigns.xyz:8083/mqtt';
 const client = mqtt.connect(WebSocket_URL, options);
 
 client.on('connect', () => {
