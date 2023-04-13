@@ -17,7 +17,7 @@ const options = {
 
 // WebSocket connect url
 const WebSocket_URL = 'wss://proyectosbarrasdesigns.xyz:8084/mqtt';
-const client = mqtt.connect(WebSocket_URL, options);
+const client = mqtt.connect(connectUrl, options);
 
 client.on('connect', () => {
     console.log('Connect success');
